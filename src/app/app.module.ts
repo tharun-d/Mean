@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { LoginuserComponent } from './loginuser/loginuser.component';
+import { BlogComponent } from './blog/blog.component';
+import { ApiService } from './api.service';
 
+const appRoutes: Routes = [
+  {path: 'register', component: RegisterUserComponent},
+  {path: 'login', component: LoginuserComponent},
+  {path: 'blog', component: BlogComponent},
+  {path: '', redirectTo: '/register', pathMatch: 'full'}
+  ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterUserComponent,
+    LoginuserComponent,
+    BlogComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    BsDatepickerModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
