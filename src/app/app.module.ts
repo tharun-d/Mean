@@ -9,6 +9,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
 import { BlogComponent } from './blog/blog.component';
 import { ApiService } from './api.service';
+import { ConfirmEqualValidatorDirective } from './register-user/confirm-equal-validator.direcive';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegisterUserComponent},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     RegisterUserComponent,
     LoginuserComponent,
-    BlogComponent
+    BlogComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,

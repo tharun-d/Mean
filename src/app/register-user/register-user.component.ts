@@ -14,13 +14,13 @@ export class RegisterUserComponent implements OnInit {
     firstName: null,
     lastName: null,
     gender: null,
+    contactPreference: null,
     email: '',
     phoneNumber: null,
-    contactPreference: null,
     dateOfBirth: null,
     password: null,
-    confirmPassword: null
     };
+    confirmPasswordVerify: null;
     datePickerConfig: Partial<BsDatepickerConfig>; // change theme
     constructor(private _apiService: ApiService, private _router: Router) {
       this.datePickerConfig = Object.assign({},
