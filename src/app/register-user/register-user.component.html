@@ -1,3 +1,65 @@
-<p>
-  register-user works!
-</p>
+<form #userForm="ngForm" (ngSubmit)="saveUser()">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Register user</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="form-group" [class.has-error]="firstName.invalid && firstName.touched" [class.has-success]="firstName.valid">
+        <label for="firstName" class="control-label">First name</label>
+        <input type="text" required id="firstName" [(ngModel)]="user.firstName" name="firstName" class="form-control" #firstName="ngModel">
+        <span class="help-block" *ngIf="firstName.invalid && firstName.touched">First name is required</span>
+      </div>
+
+      <div class="form-group" [class.has-error]="lastName.invalid && lastName.touched" [class.has-success]="lastName.valid">
+        <label for="lastName" class="control-label">Last name</label>
+        <input type="text" required id="lastName" [(ngModel)]="user.lastName" name="lastName" class="form-control" #lastName="ngModel">
+        <span class="help-block" *ngIf="lastName.invalid && lastName.touched">Last name is required</span>
+      </div>
+
+      <div class="form-group" [class.has-error]="gender.invalid && gender.touched" [class.has-success]="gender.valid">
+        <label class="control-label">Gender</label>
+        <div class="form-control">
+          <label class="radio-inline">
+              <input type="radio" required value="male" name="gender" [(ngModel)]="user.gender" #gender="ngModel">
+              Male
+          </label>
+          <label class="radio-inline">
+              <input type="radio" required value="female" name="gender" [(ngModel)]="user.gender" #gender="ngModel">
+              Female
+          </label>
+        </div>
+        <span class="help-block" *ngIf="gender.invalid && gender.touched">Gender is required</span>
+      </div>
+
+      <div class="form-group" [class.has-error]="email.invalid && email.touched">
+        <label for="email" class="control-label">Email</label>
+        <input type="text" required [email]="!user.email==''" id="email" [(ngModel)]="user.email" name="email" class="form-control" #email="ngModel">
+        <span class="help-block" *ngIf="email.errors?.required && email.touched">Email is required</span>
+        <span class="help-block" *ngIf="email.errors?.email">Email is not valid</span>
+      </div>
+
+      <div class="form-group" [class.has-error]="phone.invalid && phone.touched">
+        <label for="phoneNumber" class="control-label">Phone Number</label>
+        <input type="text" id="phoneNumber" required [(ngModel)]="user.phoneNumber" name="phoneNumber" class="form-control" #phone="ngModel">
+        <span class="help-block" *ngIf="phone.invalid && phone.touched">Phone Number is required</span>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-5">
+            <label for="dateOfBirth">Date Of Birth</label>
+            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" placement="right" id="dateOfBirth" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" class="form-control">
+        </div>
+      </div>
+
+    </div>
+    <div class="panel-footer">
+      <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Register</button>
+    </div>
+  </div>
+</form>
+
+Angular Generated : {{userForm.value | json}}
+<br/>
+<br/>
+Our user model : {{ user | json }}
