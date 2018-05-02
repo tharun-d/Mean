@@ -27,7 +27,7 @@ export class LoginuserComponent implements OnInit {
             if (this.status === 'Not Found') {
               this.Message = 'sorry we cant find you :( either give correct login details or register';
             } else {
-              // JSON.stringify(this._apiService.loggerDetails = res;
+              this._apiService.email = this.status;
               this._router.navigate(['blog']);
             }
           });

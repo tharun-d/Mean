@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { RegisterUser } from './models/registeruser.model';
-import { ILoginUser, ILoggerDetails } from './models/loginuser.model';
+import { ILoginUser } from './models/loginuser.model';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Imovies } from './models/movies.model';
 
 @Injectable()
 export class ApiService {
   constructor(private _http: Http) {
 
   }
-  public loggerDetails: ILoggerDetails = {
-    firstName: null
-  };
+ email = '';
 // this method executes when users login
 getRegisteredUser(email: string, password: string): Observable<string> {
     return this._http.get('http://localhost:3000/api/login/' + email + '/' + password)
@@ -40,6 +39,11 @@ emailChecker(email: string): Observable<string> {
 
 }
 
+getAllMovies(): Observable<Imovies[]> {
+    return this._http.get('http://localhost:3000/api/movies')
+              .map((response: Response) => <Imovies[]>(response.json()));
+
+}
 }
 
 
