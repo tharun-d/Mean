@@ -10,6 +10,7 @@ import { LoginuserComponent } from './loginuser/loginuser.component';
 import { BlogComponent } from './blog/blog.component';
 import { ApiService } from './api.service';
 import { ConfirmEqualValidatorDirective } from './register-user/confirm-equal-validator.direcive';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegisterUserComponent},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

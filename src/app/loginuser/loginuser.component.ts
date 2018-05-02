@@ -18,8 +18,8 @@ export class LoginuserComponent implements OnInit {
   ngOnInit() {
   }
   loginUser(): void {
-    // this._apiService.getUser(this.user);
-    this._router.navigate(['blog']);
+      this._apiService.getRegisteredUser(this.user.email, this.user.password)
+          .subscribe((userData) => this.user = userData);
   }
 
 }

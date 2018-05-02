@@ -4,6 +4,7 @@ import { ApiService } from '../api.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
