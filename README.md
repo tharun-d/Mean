@@ -1,27 +1,25 @@
-# Mean
-
+# Movies Blog using Mean
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Development server
+#used bootstrap and ngx-bootstrap(for date picker which suuport browser compatability)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#register user folder
+registers a unique user and applied validations results are shown
 
-## Code scaffolding
+#login user folder
+login the users and navigate to movie blogs
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#movie blog
+Even though u dnt login u can see the movies present there. But to add  a movie user should login
 
-## Build
+#server folder
+express and node is running there to call api's & used body parser also
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+#Start Mongodb
+start the mongodb instance server for cmd using "mongod" command
 
-## Running unit tests
+#Start node server
+use command "node app.js" from cmd at the path app=> server=> package.json
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#start Angular
+use command "ng serve open" from cmd at the path app =>package.json so that angular application runs

@@ -22,11 +22,10 @@ getRegisteredUser(email: string, password: string): Observable<string> {
                 });
 }
 // registers a new user
-registerUser(employee: RegisterUser) {
+registerUser(user: RegisterUser) {
    const headersDetails = new Headers({ 'Content-Type': 'application/json' });
    const options = new RequestOptions({ headers: headersDetails });
-   console.log(employee);
-   return this._http.post('http://localhost:3000/api/register', employee, options);
+   return this._http.post('http://localhost:3000/api/register', user, options);
 }
 // this methods check whether the user already exists or not
 emailChecker(email: string): Observable<string> {
@@ -38,12 +37,19 @@ emailChecker(email: string): Observable<string> {
                 });
 
 }
-
+// getting all movies in moviescollection
 getAllMovies(): Observable<Imovies[]> {
     return this._http.get('http://localhost:3000/api/movies')
               .map((response: Response) => <Imovies[]>(response.json()));
 
 }
+
+registerMovie(movie: Imovies) {
+  const headersDetails = new Headers({ 'Content-Type': 'application/json' });
+  const options = new RequestOptions({ headers: headersDetails });
+  return this._http.post('http://localhost:3000/api/movies', movie, options);
+}
+
 }
 
 

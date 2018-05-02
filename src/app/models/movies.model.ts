@@ -1,6 +1,6 @@
 export interface Imovies {
   author: string;
   movie: string;
-  rating: number;
+  rating: string;
   comment: string;
 }

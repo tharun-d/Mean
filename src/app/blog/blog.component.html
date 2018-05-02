@@ -1,1 +1,83 @@
-you are logged in as <h1>{{email}}</h1>
+<div *ngIf="email!=''">
+  You are logged in as {{email}}
+</div>
+
+<br/>
+<div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Movie</th>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{movie.author}}</td>
+          <td>{{movie.movie}}</td>
+          <td>{{movie.rating}}</td>
+          <td>{{movie.comment}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="email==''">
+        <h3>You must login to add new movie</h3>
+    </div>
+    <div *ngIf="email!=''">
+      <form #moviesForm="ngForm" (ngSubmit)="saveMovie()">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add new movie</h3>
+          </div>
+
+          <div class="panel-body">
+
+              <div class="form-group" [class.has-error]="movieName.invalid && movieName.touched" [class.has-success]="movieName.valid">
+                  <label for="movieName" class="control-label">Movie name</label>
+                  <input type="text" required id="movieName" [(ngModel)]="formMovie.movie" name="movieName" class="form-control" #movieName="ngModel">
+                  <span class="help-block" *ngIf="movieName.invalid && movieName.touched">Movie name is required</span>
+              </div>
+
+              <div class="form-group" [class.has-error]="rating.invalid && rating.touched" [class.has-success]="rating.valid">
+                  <label class="control-label">Rating</label>
+                  <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" required value="1" name="rating" [(ngModel)]="formMovie.rating" #rating="ngModel">
+                        1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" required value="2" name="rating" [(ngModel)]="formMovie.rating" #rating="ngModel">
+                        2
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" required value="3" name="rating" [(ngModel)]="formMovie.rating" #rating="ngModel">
+                        3
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" required value="4" name="rating" [(ngModel)]="formMovie.rating" #rating="ngModel">
+                        4
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" required value="5" name="rating" [(ngModel)]="formMovie.rating" #rating="ngModel">
+                        5
+                    </label>
+                  </div>
+                  <span class="help-block" *ngIf="rating.invalid && rating.touched">Rating is required</span>
+              </div>
+
+              <div class="form-group">
+                  <label for="comment">Write a comment</label>
+                  <input type="text"  id="comment" [(ngModel)]="formMovie.comment" name="comment" class="form-control" #movie="ngModel">
+              </div>
+
+          </div>
+
+          <div class="panel-footer">
+              <button type="submit" [disabled]="moviesForm.invalid" class="btn btn-primary">Save a movie</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
