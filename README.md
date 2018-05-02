@@ -15,6 +15,9 @@ Even though u dnt login u can see the movies present there. But to add  a movie 
 #server folder
 express and node is running there to call api's & used body parser also
 
+# install the modules
+first via command "npm install" in package.json file and then follow the below steps
+
 #Start Mongodb
 start the mongodb instance server for cmd using "mongod" command
 

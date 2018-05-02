@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
     // check whether if user already exists
     app.get('/api/emailChecker/:email',function(req,res){
         MongoClient.connect(url, function(err, client) {
-
+        
             const col = client.db(dbName).collection(registerCollection);
 
             col.find({'email': req.params.email}).project({'_id': 0, 'email': 1})
@@ -69,7 +69,7 @@ app.use(function(req, res, next) {
     // getting the movies
      app.get('/api/movies',function(req,res){
         MongoClient.connect(url, function(err, client) {
-
+        
             const col = client.db(dbName).collection(moviesCollection);
 
             col.find({}).project({'_id': 0, 'author' : 1,'movie': 1, 'rating' : 1, 'comment' : 1})
