@@ -2,7 +2,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 # used bootstrap and ngx-bootstrap
-for date picker which support browser compatability)
+ngx-bootstrap for date picker which support browser compatability
 
 # register user folder
 registers a unique user and applied validations results are shown
@@ -26,4 +26,4 @@ start the mongodb instance server for cmd using "mongod" command
 use command "node app.js" from cmd at the path app=> server=> package.json
 
 # start Angular
-use command "ng serve open" from cmd at the path app =>package.json so that angular application runs
+use command "ng serve --open" from cmd at the path app =>package.json so that angular application runs
