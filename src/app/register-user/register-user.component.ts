@@ -22,6 +22,8 @@ export class RegisterUserComponent implements OnInit {
     password: null,
     };
     confirmPasswordVerify: null;
+    Message = '';
+    status: string;
     datePickerConfig: Partial<BsDatepickerConfig>; // change theme
     constructor(private _apiService: ApiService, private _router: Router) {
       this.datePickerConfig = Object.assign({},
@@ -35,8 +37,15 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit() {
   }
   saveUser(): void {
-    this._apiService.saveUser(this.user);
-    this._router.navigate(['login']);
+    this._apiService.emailChecker(this.user.email).subscribe((res) => {
+      this.status = res;
+      if (this.status === 'Found') {
+        this.Message = 'User with similar email already exists';
+      } else {
+        this._apiService.registerUser(this.user).subscribe();
+        this._router.navigate(['login']);
+      }
+    });
   }
 
 }

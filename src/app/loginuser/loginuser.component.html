@@ -19,6 +19,10 @@
                 <span class="help-block" *ngIf="password.invalid && password.touched">Password is required</span>
             </div>
 
+            <div class="form-group" [class.has-error]="Message!=''">
+              <span class="help-block" class.has-error *ngIf="Message!=''">{{Message}}</span>
+            </div>
+
         </div>
         <div class="panel-footer">
             <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>

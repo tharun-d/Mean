@@ -8,3 +8,4 @@ export interface RegisterUser {
   dateOfBirth: Date;
   password: number;
 }
+

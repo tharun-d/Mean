@@ -1,25 +1,45 @@
 import { Injectable } from '@angular/core';
 import { RegisterUser } from './models/registeruser.model';
-import { LoginUser } from './models/loginuser.model';
-import { Http, Response } from '@angular/http';
+import { ILoginUser, ILoggerDetails } from './models/loginuser.model';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
-  public loggedUser: LoginUser;
-  public userName: string;
   constructor(private _http: Http) {
 
   }
-
-getRegisteredUser(email: string, password: string): Observable<LoginUser> {
+  public loggerDetails: ILoggerDetails = {
+    firstName: null
+  };
+// this method executes when users login
+getRegisteredUser(email: string, password: string): Observable<string> {
     return this._http.get('http://localhost:3000/api/login/' + email + '/' + password)
-                .map((response: Response) => <LoginUser>response.json());
+                .map((response: Response) => {
+                {
+                  return response.json();
+                }
+                });
 }
-saveUser(employee: RegisterUser) {
-  // this.listEmployees.push(employee);
+// registers a new user
+registerUser(employee: RegisterUser) {
+   const headersDetails = new Headers({ 'Content-Type': 'application/json' });
+   const options = new RequestOptions({ headers: headersDetails });
+   console.log(employee);
+   return this._http.post('http://localhost:3000/api/register', employee, options);
+}
+// this methods check whether the user already exists or not
+emailChecker(email: string): Observable<string> {
+  return this._http.get('http://localhost:3000/api/emailchecker/' + email)
+              .map((response: Response) => {
+                {
+                  return response.json();
+                }
+                });
+
+}
+
 }
 
 
-}
