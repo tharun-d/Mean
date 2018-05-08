@@ -1,3 +1,8 @@
+# Pre-requisites
+Node should be installed
+Angular Cli for project to run
+Mongodb should be installed
+
 # Movies Blog using Mean
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
