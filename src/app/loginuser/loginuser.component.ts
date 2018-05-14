@@ -28,7 +28,7 @@ export class LoginuserComponent implements OnInit {
               this.Message = 'sorry we cant find you :( either give correct login details or register';
             } else {
               this._apiService.email = this.status;
-              this._router.navigate(['blog']);
+              this._router.navigate(['addMovie']);
             }
           });
   }

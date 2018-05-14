@@ -11,11 +11,13 @@ import { BlogComponent } from './blog/blog.component';
 import { ApiService } from './api.service';
 import { ConfirmEqualValidatorDirective } from './register-user/confirm-equal-validator.direcive';
 import { HttpModule } from '@angular/http';
+import { AddMovieComponentComponent } from './add-movie-component/add-movie-component.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegisterUserComponent},
   {path: 'login', component: LoginuserComponent},
   {path: 'blog', component: BlogComponent},
+  {path: 'addMovie', component: AddMovieComponentComponent},
   {path: '', redirectTo: '/register', pathMatch: 'full'}
   ];
 
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     RegisterUserComponent,
     LoginuserComponent,
     BlogComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    AddMovieComponentComponent
   ],
   imports: [
     BrowserModule,
