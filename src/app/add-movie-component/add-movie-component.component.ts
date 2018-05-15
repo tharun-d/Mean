@@ -19,7 +19,9 @@ export class AddMovieComponentComponent {
   };
   STORAGE_KEY = 'looger Email';
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private _apiService: ApiService, private _router: Router) {
-    this.email = storage.get(this.STORAGE_KEY);
+    if (storage.has(this.STORAGE_KEY)) {
+      this.email = storage.get(this.STORAGE_KEY);
+    }
    }
 
   saveMovie(): void {
