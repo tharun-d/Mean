@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { AppComponent } from './app.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     FormsModule,
     BsDatepickerModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    StorageServiceModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

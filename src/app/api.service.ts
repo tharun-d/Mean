@@ -11,7 +11,6 @@ export class ApiService {
   constructor(private _http: Http) {
 
   }
- email = '';
 // this method executes when users login
 getRegisteredUser(email: string, password: string): Observable<string> {
     return this._http.get('http://localhost:3000/api/login/' + email + '/' + password)
